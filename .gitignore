@@ -1,8 +1,14 @@
+# shell scripts
+qb.sh
+
+# virtual environment
 env1/
 
+# caches
 *.pyc
 __pycache__/
 
+# flask specific 
 instance/
 
 .pytest_cache/
