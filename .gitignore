@@ -2,7 +2,7 @@
 qb.sh
 
 # virtual environment
-env1/
+venv/
 
 # caches
 *.pyc
