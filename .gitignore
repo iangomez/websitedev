@@ -1,5 +1,5 @@
-# shell scripts
-qb.sh
+# vscode
+.vscode/
 
 # virtual environment
 venv/
