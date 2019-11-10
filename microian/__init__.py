@@ -3,9 +3,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def welcome():
-    title = "microian"
-    name = "ian"
-    return render_template("welcome.html", title=title, name=name)
+    return render_template("blog/index.html")
+
+@app.route('/example')
+def example():
+    return render_template("blog_example.html")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
