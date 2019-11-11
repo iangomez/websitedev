@@ -50,6 +50,7 @@ def register():
     Validates that the username is not already taken. Hashes the
     password for security.
     """
+
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]

@@ -24,7 +24,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # # register the database commands
+    # register the database commands
     from microian import db
 
     db.init_app(app)
