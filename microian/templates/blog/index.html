@@ -1,49 +1,57 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block head %} {{ super() }} {% endblock %} {% block content %}
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+{% block morecss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
+
+{% block content %}
 <main role="main" class="container">
-    <div class="row">
-        <div class="col-md-8 blog-main">
-            <!-- <h3 class="pb-4 mb-4 font-italic border-bottom">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <!-- <h3 class="pb-4 mb-4 font-italic border-bottom">
                 From the Firehose
             </h3> -->
 
-            {% block blogcontent %} {% for post in posts %}
-            <article class="blog-post">
-                <header>
-                    <div>
-                        <h2 class="blog-post-title">{{ post['title'] }}</h2>
-                        <p class="blog-post-meta">{{ post['created'].strftime('%B %d, %Y') }} by {{ post['username'] }}</p>
-                    </div>
-                    {% if g.user['id'] == post['author_id'] %}
-                    <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a> {% endif %}
-                </header>
-                <p class="body">{{ post['body'] }}</p>
-            </article>
-            {% if not loop.last %}
-            <hr> {% endif %} {% endfor %} {% endblock %}
+      {% block blogcontent %} {% for post in posts %}
+      <article class="blog-post">
+        <header>
+          <div>
+            <h2 class="blog-post-title">{{ post['title'] }}</h2>
+            <p class="blog-post-meta">{{ post['created'].strftime('%B %d, %Y') }} by {{ post['username'] }}</p>
+          </div>
+          {% if g.user['id'] == post['author_id'] %}
+          <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a> {% endif %}
+        </header>
+        <p class="body">{{ post['body'] }}</p>
+      </article>
+      {% if not loop.last %}
+      <hr> {% endif %} {% endfor %} {% endblock %}
 
-
-        </div>
-
-        <aside class="col-md-4 blog-sidebar">
-            <div class="p-4 mb-3 bg-light rounded">
-                <h4 class="font-italic">About</h4>
-                <p class="mb-0">A good reason to learn some full stack web development and great excuse to do some fun research and synthesis. This blog's backend is written in Python, using the Flask web framework.</p>
-            </div>
-
-            <div class="p-4">
-                <h4 class="font-italic">Elsewhere</h4>
-                <ol class="list-unstyled">
-                    <li><a href="https://github.com/iangomez/websitedev">GitHub</a></li>
-                    <li><a href="https://open.spotify.com/user/12129446283?si=r9ya9lQwSzKoXt4iTz4iYA">Spotify</a></li>
-                </ol>
-            </div>
-
-            <div class="p-4">
-                <img src="{{ url_for('static', filename='images/mi_outline.jpg') }}" alt="State of Michigan">
-            </div>
-        </aside>
-        <!-- /.blog-sidebar -->
 
     </div>
+
+    <aside class="col-md-4 blog-sidebar">
+      <div class="p-4 mb-3 bg-light rounded">
+        <h4 class="font-italic">About</h4>
+        <p class="mb-0">A good reason to learn some full stack web development and great excuse to do some fun research
+          and synthesis. This blog's backend is written in Python, using the Flask web framework.</p>
+      </div>
+
+      <div class="p-4">
+        <h4 class="font-italic">Elsewhere</h4>
+        <ol class="list-unstyled">
+          <li><a href="https://github.com/iangomez/websitedev">GitHub</a></li>
+          <li><a href="https://open.spotify.com/user/12129446283?si=r9ya9lQwSzKoXt4iTz4iYA">Spotify</a></li>
+        </ol>
+      </div>
+
+      <div class="p-4">
+        <img src="{{ url_for('static', filename='images/mi_outline.jpg') }}" alt="State of Michigan">
+      </div>
+    </aside>
+    <!-- /.blog-sidebar -->
+
+  </div>
 </main>
 {% endblock %}
