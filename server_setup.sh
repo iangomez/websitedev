@@ -30,4 +30,4 @@ git config --global user.name "Ian Gomez";
 # set up project
 python3 -m venv venv;
 source venv/bin/activate;
-pip install -r stable-req.txt;
+#pip install -e .;
