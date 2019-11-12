@@ -66,7 +66,7 @@
                         <ul class="navbar-nav">
                             {% if g.user %}
                             <li class="nav-item">
-                                <span class="nav-link disabled">{{ g.user['username'] }}</span>
+                                <span class="navbar-text">{{ g.user['username'] }}</span>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a> {% else %}
@@ -85,6 +85,10 @@
             </header>
         </div>
     </div>
+
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
 
     <div id="content">{% block content %}{% endblock %}</div>
 

@@ -1,0 +1,6 @@
+include LICENSE
+include microian/schema.sql
+graft microian/static
+graft microian/templates
+graft tests
+global-exclude *.pyc
