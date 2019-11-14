@@ -27,6 +27,10 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+  <!-- internal css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+
   {% block morecss %}{% endblock %}
 
   {% block head %}{% endblock %}
@@ -88,9 +92,9 @@
                 <a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
               </li>
               {% else %}
-              <!-- <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
-              </li> -->
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a> {% endif %}
               </li>
@@ -109,10 +113,11 @@
 
   <div id="content">{% block content %}{% endblock %}</div>
 
+  {% block footer %}
 
   <footer class="blog-footer">
 
-    {% block footer%}
+    {% block footerContent %}
     <p>Brought to you by Python and hope.</p>
     
     <p>
@@ -122,6 +127,7 @@
 
   </footer>
 
+  {% endblock %}
 
 </body>
 
