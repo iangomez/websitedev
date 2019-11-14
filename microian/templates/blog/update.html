@@ -10,7 +10,6 @@
           'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
           'save table directionality emoticons template paste'
         ],
-        content_css: 'css/content.css',
         toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
       });
   </script>
@@ -26,7 +25,7 @@
           <label for="title">Title</label>
           <input name="title" id="title" class="form-control" value="{{ request.form['title'] or post['title'] }}" required>
           <label for="tags">Tags</label>
-          <input name="tags" id="tags" class="form-control" value="{{ request.form['tags'] }}" required>
+          <input name="tags" id="tags" class="form-control" value="{{ request.form['tags'] or post['tags']}}" required>
           <label for="body">Body</label>
           <textarea name="body" class="form-control" id="body">{{ request.form['body'] or post['body'] }}</textarea>
           <input type="submit" value="Save">
