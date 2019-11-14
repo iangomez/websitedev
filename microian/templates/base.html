@@ -57,7 +57,7 @@
     <div class="container p-5">
       <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-          <a class="navbar-brand" href="#">Read Astray</a>
+          <a class="navbar-brand" href="{{ url_for('index') }}">Read Astray</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -88,9 +88,9 @@
                 <a class="nav-link" href="{{ url_for('auth.logout') }}">Log Out</a>
               </li>
               {% else %}
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('auth.register') }}">Register</a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('auth.login') }}">Log In</a> {% endif %}
               </li>
@@ -113,7 +113,7 @@
   <footer class="blog-footer">
 
     {% block footer%}
-    <p>Brought to you by Python and dream.</p>
+    <p>Brought to you by Python and hope.</p>
     
     <p>
       <a href="#">Back to top</a>
